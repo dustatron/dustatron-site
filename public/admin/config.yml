@@ -3,11 +3,11 @@ backend:
   name: github
   repo: dustatron/dustatron-site
   branch: main # Branch to update (optional; defaults to master)
-  auth:
-    client_id: "Ov23liLczWUEgmQSpNBg"
-    scope: "repo"
-    base_url: "https://dustatron.github.io"
-    auth_endpoint: "auth"
+  client_id: "Ov23liLczWUEgmQSpNBg"
+  scope: "repo"
+  base_url: "https://dustatron.github.io"
+  auth_endpoint: "auth"
+  use_graphql: true
 
 # Media configuration
 media_folder: "src/assets/images" # Location where files will be stored in the repo
