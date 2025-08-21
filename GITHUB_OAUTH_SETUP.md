@@ -10,10 +10,10 @@ To enable GitHub authentication for Decap CMS on your GitHub Pages site, follow 
    - **Application name**: `Dustatron Site CMS` (or any name you prefer)
    - **Homepage URL**: `https://dustatron.github.io/dustatron-site`
    - **Application description**: (Optional) `CMS for managing dustatron-site content`
-   - **Authorization callback URL**: `https://dustatron.github.io/dustatron-site/admin/auth`
+   - **Authorization callback URL**: `https://dustatron.github.io/dustatron-site/callback`
 4. Click **Register application**
 5. On the next screen, note your **Client ID**
-6. Click **Generate a new client secret** and note the generated secret
+6. You don't need to generate a client secret for this authentication method
 
 ## 2. Update Your Configuration
 
@@ -24,15 +24,8 @@ backend:
   name: github
   repo: dustatron/dustatron-site
   branch: main
-  base_url: https://dustatron.github.io
-  auth_endpoint: dustatron-site/admin/auth
-  client_id: YOUR_GITHUB_CLIENT_ID
-```
-
-2. Create a `.env` file in your project root (based on `.env.example`) and add your client secret:
-
-```
-GITHUB_OAUTH_CLIENT_SECRET=your_client_secret_here
+  auth_type: implicit
+  app_id: YOUR_GITHUB_CLIENT_ID
 ```
 
 ## 3. Deploy Your Site
@@ -50,7 +43,9 @@ After making these changes, commit and push your code to GitHub. The GitHub Acti
 
 If you encounter issues:
 
-- Ensure your callback URL exactly matches what's configured in the GitHub OAuth App
+- Make sure your GitHub OAuth App is correctly configured
+- Ensure the **Authorization callback URL** is set to `https://dustatron.github.io/dustatron-site/callback`
 - Check browser console for any errors
-- Verify that your client ID is correctly set in `config.yml`
+- Verify that your client ID is correctly set as `app_id` in `config.yml`
 - Make sure your site is properly deployed with the latest changes
+- Try clearing your browser cache and cookies

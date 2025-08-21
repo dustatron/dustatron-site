@@ -3,9 +3,9 @@ backend:
   name: github
   repo: dustatron/dustatron-site
   branch: main # Branch to update
-  base_url: https://dustatron.github.io
-  auth_endpoint: dustatron-site/admin/auth
-  client_id: Ov23liLczWUEgmQSpNBg # Replace with your actual GitHub OAuth Client ID
+  # For GitHub OAuth
+  auth_type: implicit # Use implicit grant flow (client-side)
+  app_id: Ov23liLczWUEgmQSpNBg # Your GitHub OAuth App Client ID
 
 # Media configuration
 media_folder: "src/assets/images" # Media files will be stored in the repo under src/assets/images
