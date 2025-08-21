@@ -3,7 +3,7 @@ backend:
   name: github
   repo: dustatron/dustatron-site
   branch: main # Branch to update (optional; defaults to master)
-  site_domain: https://dustatron.github.io/dustatron-site
+  site_domain: dustatron.github.io/dustatron-site/
 
 # Media configuration
 media_folder: "src/assets/images" # Location where files will be stored in the repo
