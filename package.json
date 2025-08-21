@@ -10,7 +10,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/node": "^9.4.2",
     "astro": "^4.5.0",
     "decap-cms-app": "^3.8.3"
   }
