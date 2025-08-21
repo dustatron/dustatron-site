@@ -1,7 +1,5 @@
 import { defineConfig } from "astro/config";
 
-import netlify from "@astrojs/netlify";
-
 // https://astro.build/config
 export default defineConfig({
   site: process.env.SITE || "http://localhost:4321",
@@ -11,11 +9,4 @@ export default defineConfig({
 
   outDir: "./dist",
   publicDir: "./public",
-
-  build: {
-    assets: "_assets",
-  },
-
-  output: "server",
-  adapter: netlify(),
 });
