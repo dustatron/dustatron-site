@@ -6,8 +6,8 @@ backend:
   site_domain: dustatron.github.io
 
 # Media configuration
-media_folder: "src/assets/images" # Media files will be stored in the repo under src/assets/images
-public_folder: "/assets/images" # The src attribute for uploaded media will begin with /assets/images
+media_folder: "src/assets/images" # Location where files will be stored in the repo
+public_folder: "src/assets/images" # The src attribute for uploaded media
 
 # Collections
 collections:
