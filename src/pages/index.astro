@@ -31,6 +31,21 @@
         background-color: #2d3748;
       }
     </style>
+    <script is:inline>
+      // This script will run in the browser
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get the admin link element
+        var adminLink = document.querySelector(".admin-link");
+        // Check if we're on GitHub Pages (not localhost)
+        if (
+          window.location.hostname !== "localhost" &&
+          window.location.hostname !== "127.0.0.1"
+        ) {
+          // Update the href to include the base path
+          adminLink.setAttribute("href", "/dustatron-site/admin");
+        }
+      });
+    </script>
   </head>
   <body>
     <h1>Welcome to My Astro Site with Decap CMS</h1>

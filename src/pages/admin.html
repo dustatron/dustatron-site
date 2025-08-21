@@ -4,7 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
-    <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
+    <!-- Use a path that works in both development and production -->
+    <script>
+      // Dynamically set the config URL based on the base path
+      const baseUrl = document.location.hostname === 'localhost' ? '' : '/dustatron-site';
+      const configElement = document.createElement('link');
+      configElement.rel = 'cms-config-url';
+      configElement.type = 'text/yaml';
+      configElement.href = `${baseUrl}/admin/config.yml`;
+      document.head.appendChild(configElement);
+    </script>
     <title>Content Manager</title>
   </head>
   <body>
