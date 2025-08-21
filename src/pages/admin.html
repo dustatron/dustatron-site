@@ -19,5 +19,25 @@
   <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
+    
+    <!-- Handle GitHub OAuth callback -->
+    <script>
+      // Check if we're handling an OAuth callback
+      if (window.location.hash.startsWith('#access_token=')) {
+        // Parse the access token from the URL hash
+        const accessToken = window.location.hash.match(/access_token=([^&]*)/)[1];
+        const tokenType = window.location.hash.match(/token_type=([^&]*)/)[1];
+        
+        // Store the token in localStorage
+        localStorage.setItem('github-token', accessToken);
+        localStorage.setItem('github-token-type', tokenType);
+        
+        // Remove the hash from the URL
+        window.history.replaceState(null, null, window.location.pathname);
+        
+        // Reload the page to initialize CMS with the token
+        window.location.reload();
+      }
+    </script>
   </body>
 </html>

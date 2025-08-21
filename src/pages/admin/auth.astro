@@ -1,0 +1,46 @@
+---
+
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authenticating...</title>
+    <script>
+      // This script handles the OAuth callback from GitHub
+      // It extracts the token from the hash and sends it to the parent window
+      const searchParams = new URLSearchParams(window.location.search);
+      const code = searchParams.get("code");
+      const provider = searchParams.get("provider");
+
+      if (code && provider) {
+        // Post the code to the parent window
+        window.opener.postMessage(
+          {
+            type: "authorization",
+            payload: {
+              provider,
+              code,
+            },
+          },
+          window.location.origin
+        );
+
+        // Close this window
+        window.close();
+      } else {
+        // If there's no code or provider, show an error
+        document.body.innerHTML = "<h3>Error during authentication</h3>";
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Authenticating with GitHub...</h2>
+    <p>
+      This window should close automatically. If it doesn't, you can close it
+      manually.
+    </p>
+  </body>
+</html>
