@@ -5,7 +5,7 @@ backend:
   branch: main # Branch to update
   base_url: https://dustatron.github.io
   auth_endpoint: dustatron-site/admin/auth
-  client_id: YOUR_GITHUB_CLIENT_ID # Replace with your actual GitHub OAuth Client ID
+  client_id: dustatron-astro-site # Replace with your actual GitHub OAuth Client ID
 
 # Media configuration
 media_folder: "src/assets/images" # Media files will be stored in the repo under src/assets/images
