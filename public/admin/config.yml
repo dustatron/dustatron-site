@@ -2,7 +2,7 @@
 backend:
   name: github
   repo: dustatron/dustatron-site
-  branch: main # Branch to update
+  branch: main # Branch to update (optional; defaults to master)
   site_domain: dustatron.github.io
 
 # Media configuration
