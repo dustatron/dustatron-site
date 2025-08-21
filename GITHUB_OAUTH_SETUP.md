@@ -1,4 +1,4 @@
-# Setting Up GitHub OAuth for Decap CMS
+# Setting Up GitHub Authentication for Decap CMS
 
 To enable GitHub authentication for Decap CMS on your GitHub Pages site, follow these steps:
 
@@ -10,22 +10,21 @@ To enable GitHub authentication for Decap CMS on your GitHub Pages site, follow 
    - **Application name**: `Dustatron Site CMS` (or any name you prefer)
    - **Homepage URL**: `https://dustatron.github.io/dustatron-site`
    - **Application description**: (Optional) `CMS for managing dustatron-site content`
-   - **Authorization callback URL**: `https://dustatron.github.io/dustatron-site/callback`
+   - **Authorization callback URL**: `https://dustatron.github.io/dustatron-site/admin`
 4. Click **Register application**
 5. On the next screen, note your **Client ID**
 6. You don't need to generate a client secret for this authentication method
 
 ## 2. Update Your Configuration
 
-1. Update your `public/admin/config.yml` file with your GitHub OAuth Client ID:
+Your `public/admin/config.yml` file has been updated with the correct GitHub authentication configuration:
 
 ```yaml
 backend:
   name: github
   repo: dustatron/dustatron-site
   branch: main
-  auth_type: implicit
-  app_id: YOUR_GITHUB_CLIENT_ID
+  site_domain: dustatron.github.io
 ```
 
 ## 3. Deploy Your Site
@@ -44,8 +43,9 @@ After making these changes, commit and push your code to GitHub. The GitHub Acti
 If you encounter issues:
 
 - Make sure your GitHub OAuth App is correctly configured
-- Ensure the **Authorization callback URL** is set to `https://dustatron.github.io/dustatron-site/callback`
+- Ensure the **Authorization callback URL** is set to `https://dustatron.github.io/dustatron-site/admin`
 - Check browser console for any errors
-- Verify that your client ID is correctly set as `app_id` in `config.yml`
+- Verify that your site domain is correctly set in `config.yml`
 - Make sure your site is properly deployed with the latest changes
 - Try clearing your browser cache and cookies
+- Check that you have the correct permissions for the repository
