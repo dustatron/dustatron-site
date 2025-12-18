@@ -2,7 +2,6 @@
 
 **Frontend Engineer** | Portland, OR
 
-dustymccord@gmail.com | 503-502-9881
 [GitHub](https://github.com/dustatron) | [LinkedIn](https://www.linkedin.com/in/dustymccord) | [dustymccord.com](https://www.dustymccord.com)
 
 ---
