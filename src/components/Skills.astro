@@ -9,16 +9,16 @@ const { skills } = Astro.props;
 ---
 
 <section class="mb-12">
-  <h2 class="text-2xl font-bold text-gray-900 mb-6 border-b-4 border-accent-500 pb-2 inline-block">
+  <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6 border-b-4 border-accent-500 pb-2 inline-block">
     Skills
   </h2>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {skills.map((category) => (
-      <div class="bg-gray-50 rounded-lg p-4">
-        <h3 class="font-bold text-accent-700 mb-2">{category.category}</h3>
+      <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4">
+        <h3 class="font-bold text-accent-700 dark:text-accent-400 mb-2">{category.category}</h3>
         <div class="flex flex-wrap gap-2">
           {category.skills.map((skill) => (
-            <span class="bg-white px-3 py-1 rounded-full text-sm text-gray-700 border border-gray-200">
+            <span class="bg-white dark:bg-gray-600 px-3 py-1 rounded-full text-sm text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-500">
               {skill}
             </span>
           ))}
