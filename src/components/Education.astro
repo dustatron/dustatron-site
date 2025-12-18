@@ -1,0 +1,27 @@
+---
+import type { EducationEntry } from "../lib/parseResume";
+
+interface Props {
+  education: EducationEntry[];
+}
+
+const { education } = Astro.props;
+---
+
+<section class="mb-12">
+  <h2 class="text-2xl font-bold text-gray-900 mb-6 border-b-4 border-accent-500 pb-2 inline-block">
+    Education
+  </h2>
+  <div class="space-y-3">
+    {education.map((entry) => (
+      <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center py-2 border-b border-gray-100 last:border-0">
+        <div>
+          <span class="font-bold text-gray-900">{entry.school}</span>
+          <span class="text-gray-500 mx-2">|</span>
+          <span class="text-gray-700">{entry.program}</span>
+        </div>
+        <span class="text-gray-500 text-sm">{entry.years}</span>
+      </div>
+    ))}
+  </div>
+</section>

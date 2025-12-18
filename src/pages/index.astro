@@ -1,58 +1,37 @@
 ---
-// Component imports and setup can go here
+import { parseResume } from "../lib/parseResume";
+import Header from "../components/Header.astro";
+import Summary from "../components/Summary.astro";
+import Skills from "../components/Skills.astro";
+import Experience from "../components/Experience.astro";
+import Community from "../components/Community.astro";
+import PreviousExperience from "../components/PreviousExperience.astro";
+import Education from "../components/Education.astro";
+
+const resume = parseResume();
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>My Astro Site with Decap CMS</title>
-    <style>
-      body {
-        font-family: system-ui, sans-serif;
-        padding: 2rem;
-        max-width: 800px;
-        margin: 0 auto;
-        line-height: 1.6;
-      }
-      h1 {
-        color: #333;
-      }
-      .admin-link {
-        display: inline-block;
-        margin-top: 2rem;
-        padding: 0.5rem 1rem;
-        background-color: #4a5568;
-        color: white;
-        text-decoration: none;
-        border-radius: 0.25rem;
-      }
-      .admin-link:hover {
-        background-color: #2d3748;
-      }
-    </style>
-    <script is:inline>
-      // This script will run in the browser
-      document.addEventListener("DOMContentLoaded", function () {
-        // Get the admin link element
-        var adminLink = document.querySelector(".admin-link");
-        // Check if we're on GitHub Pages (not localhost)
-        if (
-          window.location.hostname !== "localhost" &&
-          window.location.hostname !== "127.0.0.1"
-        ) {
-          // Update the href to include the base path
-          adminLink.setAttribute("href", "/admin");
-        }
-      });
-    </script>
+    <title>{resume.header.name} | {resume.header.title}</title>
+    <meta name="description" content={resume.summary.slice(0, 160)} />
   </head>
-  <body>
-    <h1>Welcome to My Astro Site with Decap CMS</h1>
-    <p>
-      This is a simple Astro site integrated with Decap CMS for content
-      management.
-    </p>
-    <a href="/admin" class="admin-link">Go to Admin Dashboard</a>
+  <body class="bg-gray-100 min-h-screen">
+    <main class="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-xl shadow-lg p-8 sm:p-12">
+        <Header header={resume.header} />
+        <Summary summary={resume.summary} />
+        <Skills skills={resume.skills} />
+        <Experience experience={resume.experience} />
+        <Community community={resume.community} />
+        <PreviousExperience content={resume.previousExperience} />
+        <Education education={resume.education} />
+      </div>
+      <footer class="text-center text-gray-500 text-sm mt-8">
+        Built with Astro
+      </footer>
+    </main>
   </body>
 </html>
