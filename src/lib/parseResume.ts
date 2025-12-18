@@ -10,8 +10,6 @@ export interface Header {
   name: string;
   title: string;
   location: string;
-  email: string;
-  phone: string;
   links: Link[];
 }
 
@@ -58,9 +56,7 @@ export function parseResume(): Resume {
   const name = lines[0].replace("# ", "");
   const titleLine = lines[2];
   const [title, location] = titleLine.replace(/\*\*/g, "").split(" | ");
-  const contactLine = lines[4];
-  const [email, phone] = contactLine.split(" | ");
-  const linksLine = lines[5];
+  const linksLine = lines[4];
   const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
   const links: Link[] = [];
   let match;
@@ -68,7 +64,7 @@ export function parseResume(): Resume {
     links.push({ text: match[1], url: match[2] });
   }
 
-  const header: Header = { name, title, location, email, phone, links };
+  const header: Header = { name, title, location, links };
 
   // Find sections by ## headers
   const sections: { [key: string]: string[] } = {};

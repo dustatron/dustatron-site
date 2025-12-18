@@ -14,12 +14,6 @@ const { header } = Astro.props;
     {header.title} <span class="text-gray-400">|</span> {header.location}
   </p>
   <div class="flex flex-wrap gap-4 text-gray-600">
-    <a href={`mailto:${header.email}`} class="hover:text-accent-600 transition-colors">
-      {header.email}
-    </a>
-    <span class="text-gray-300">|</span>
-    <span>{header.phone}</span>
-    <span class="text-gray-300">|</span>
     {header.links.map((link, i) => (
       <>
         <a
