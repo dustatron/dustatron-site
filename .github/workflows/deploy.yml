@@ -17,8 +17,7 @@ jobs:
       - run: pnpm i
       - run: pnpm run build
         env:
-          SITE: https://dustatron.github.io
-          BASE_PATH: /dustatron-site
+          SITE: https://dustymccord.com
       - uses: actions/upload-pages-artifact@v3
         with: { path: "./dist" }
   deploy:
