@@ -1,14 +1,16 @@
+// @ts-check
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  integrations: [react()],
   site: process.env.SITE || "http://localhost:4321",
-
-  // Only use base path for production builds, not for development
   base: process.env.BASE_PATH || "",
-
   outDir: "./dist",
   publicDir: "./public",
 });

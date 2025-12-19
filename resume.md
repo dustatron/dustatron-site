@@ -8,17 +8,18 @@
 
 ## Summary
 
-Frontend engineer with 5+ years building performant UIs in React and TypeScript. Collaborative team player who works directly with product owners and designers to ship quality apps. Strong testing advocate who has established testing infrastructure where none existed. Love discovering innovations in testing, AI-assisted development, and deployment patterns. Never afraid to roll up my sleeves and tackle something new. Active in the community, attending React Conf 2024 and 2025.
+Frontend engineer with 5+ years of experience building performant UIs in React and TypeScript. Collaborative team player who works directly with product owners and designers to ship quality apps. Strong testing advocate who has established testing infrastructure where none existed. Love discovering innovations in testing, AI-assisted development, and deployment patterns. Never afraid to roll up my sleeves and tackle something new. Active in the community, attending React Conf 2024 and 2025.
+
 
 ---
 
 ## Skills
 
-**Languages:** JavaScript, TypeScript, HTML, CSS
-**Frameworks:** React.js, Next.js, Node.js
+**Languages:** JavaScript, TypeScript, HTML, CSS, Sass, Responsive Design
+**Frameworks:** React.js, Next.js, Node.js, Chakra UI, shadcn/ui, SSR
 **State & Data:** Redux, Zustand, React Query, GraphQL, Apollo, RPC, TRPC, GRPC, Protobuf
 **Testing:** Playwright, Cypress, Jest, Vitest
-**Tools:** Vite, Storybook, git, GitHub, GitHub Workflows, CI/CD
+**Tools:** Vite, Webpack, Storybook, git, GitHub, GitHub Workflows, CI/CD, Accessibility
 **AI Development:** Claude Code, Agentic AI workflows
 
 ---
@@ -32,18 +33,20 @@ Frontend engineer with 5+ years building performant UIs in React and TypeScript.
 - Established E2E testing with Cypress where none existed; later migrated to Playwright
 - Migrated unit testing from Jest to Vitest
 - Developed tooling for secure data flows and streamlined dev workflows
-- Updated and maintain Login patterns for Okta and Cognito
+- Updated and maintained Login patterns for Okta and Cognito
 - Shipped multiple greenfield projects end-to-end, from initial planning to production
-- Created onboarding documentation as team scaled from 7 to 40+ frontend developers
+- Mentored interns and new developers; created onboarding documentation as the team scaled from 7 to 40+
 - Collaborated with developers, designers, and non-technical stakeholders across global teams to deliver on spec and on time
 - Drove innovation through company hackathons, deploying POCs for internal tools and new deployment strategies
 - Adopted agentic AI development workflows to accelerate feature development and code quality
 - Resolved production incidents and diagnosed performance bugs
+- Conduct daily code reviews, ensuring code quality and knowledge sharing across the team
+- Collaborated with backend teams on REST API design and endpoint development
 
 ### Front End Shopify Developer | Comic Cave PDX
 **Sep 2020 – Nov 2020** | Portland, OR
 
-- Built digital storefront for independent comic retailer
+- Built a digital storefront for an independent comic retailer
 - Gathered requirements, developed MVP, created custom elements (Liquid, SCSS, JS)
 - Trained client on Shopify admin interface
 
@@ -63,7 +66,7 @@ Frontend engineer with 5+ years building performant UIs in React and TypeScript.
 
 ---
 
-## Previous Experience
+## Prior Career
 
 **Video Editor & Motion Designer** | 2004 – 2019
 10+ years as video editor and motion designer for Nike, Amazon, Cartoon Network, Adidas, and other major brands. Managed teams of freelancers and worked directly with clients and stakeholders to deliver high-quality content on tight deadlines.
