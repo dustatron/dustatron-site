@@ -1,0 +1,81 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import BlogHeader from "@/components/BlogHeader.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: post,
+  }));
+}
+
+const post = Astro.props;
+const { Content } = await render(post);
+
+const formatDate = (date: Date) => {
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};
+---
+
+<Layout title={`${post.data.title} | Dusty McCord`} description={post.data.description}>
+  <BlogHeader />
+  <main class="pt-24 pb-16 px-4">
+    <article class="max-w-3xl mx-auto">
+      <a
+        href="/blog"
+        class="inline-flex items-center text-sm text-muted-foreground hover:text-primary transition-colors mb-6"
+      >
+        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back to Blog
+      </a>
+
+      <header class="mb-8">
+        <h1 class="text-4xl font-bold mb-4 text-foreground">{post.data.title}</h1>
+        <div class="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
+          <time datetime={post.data.pubDate.toISOString()}>
+            {formatDate(post.data.pubDate)}
+          </time>
+          {post.data.updatedDate && (
+            <span>
+              (Updated: {formatDate(post.data.updatedDate)})
+            </span>
+          )}
+        </div>
+        {post.data.tags.length > 0 && (
+          <div class="flex flex-wrap gap-2 mt-4">
+            {post.data.tags.map((tag) => (
+              <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+      </header>
+
+      <div class="backdrop-blur-md bg-white/10 dark:bg-white/5 rounded-xl border border-white/20 dark:border-white/10 shadow-lg p-6 md:p-8">
+        <div class="prose prose-lg dark:prose-invert max-w-none
+          prose-headings:text-foreground prose-headings:font-semibold
+          prose-p:text-foreground/90
+          prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+          prose-strong:text-foreground
+          prose-code:text-primary prose-code:bg-primary/10 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+          prose-pre:bg-black/50 prose-pre:border prose-pre:border-white/10
+          prose-blockquote:border-primary prose-blockquote:text-foreground/80
+          prose-li:text-foreground/90
+          prose-ul:text-foreground/90
+          prose-ol:text-foreground/90
+        ">
+          <Content />
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>

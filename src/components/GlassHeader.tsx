@@ -7,6 +7,7 @@ export default function GlassHeader() {
     { label: "Skills", href: "#skills" },
     { label: "Community", href: "#community" },
     { label: "Education", href: "#education" },
+    { label: "Blog", href: "/blog" },
   ];
 
   return (
