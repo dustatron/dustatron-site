@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "resume-pge.md",
+                "file": "cover-letter-veeva.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "resume-pge"
+              "title": "cover-letter-veeva"
             }
           }
         ]
@@ -185,18 +185,27 @@
   },
   "active": "984dd9fd43e5622f",
   "lastOpenFiles": [
-    "public/favicon.svg",
-    "dist/index.html",
-    "dist/manifest_C1SNQ1mK.mjs",
-    "dist/_astro/client.CSQ4PDHQ.js",
-    "dist/_astro/Footer.DkvvMU9V.js",
-    "dist/_astro/CommunitySection.CV2IgFAW.js",
-    "dist/_astro/createLucideIcon.C0anW7aW.js",
-    "dist/_astro/EducationSection.BHQPxfdg.js",
-    "dist/_astro/index.WFquGv8Z.js",
-    "dist/_astro/data.B7jVDgkF.js",
-    "dist/_astro/glass-card.-ruz4pea.js",
+    "Resume exports/priest spells deck sheet.pdf",
+    "Resume exports/dusty-mccord-resume-veeva.pdf",
+    "cover-letter-veeva.md",
+    "cover-letter-veeva.md.tmp.4575.1767033391280",
+    "resume-veeva.md",
     "Dusty McCord Cover letter Switch.md",
-    "resume-pge.md"
+    "Resume exports/Dusty McCord Cover letter Switch.pdf",
+    "dusty-mccord-block-trust.md",
+    "Resume exports/dusty-mccord-block-trust.pdf",
+    "resume-block-trust.md",
+    "resume-block.md",
+    "cover-letter-block-trust.md",
+    "cover-letter-block.md",
+    "Resume exports/dusty-mccord-cover-letter.pdf",
+    "cover-letter-block.md.tmp.12723.1766440990412",
+    "Resume exports/dusty-mccord-resume-Design-Engineer.pdf",
+    "Resume exports/resume-block-Design Engineer.pdf",
+    "Resume exports",
+    "resume-block.md.tmp.12723.1766439815207",
+    "resume.md",
+    "resume-pge.md",
+    "public/favicon.svg"
   ]
 }

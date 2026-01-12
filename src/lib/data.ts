@@ -17,7 +17,7 @@ export const workExperience = [
     location: "Portland, OR",
     period: "Nov 2020 – Present",
     achievements: [
-      "Participated in 3 major migrations: Angular → React, Redux → modern React patterns with React Query, Zustand, GraphQL",
+      "Led 3 major migrations serving 80,000+ daily users: Angular → React, Redux → modern patterns (React Query, Zustand), REST → GraphQL",
       "Established E2E testing with Cypress where none existed; later migrated to Playwright",
       "Migrated unit testing from Jest to Vitest",
       "Developed tooling for secure data flows and streamlined dev workflows",
@@ -28,7 +28,7 @@ export const workExperience = [
       "Drove innovation through company hackathons, deploying POCs for internal tools",
       "Adopted agentic AI development workflows to accelerate feature development",
       "Conduct daily code reviews, ensuring code quality and knowledge sharing",
-      "Collaborated with backend teams on REST API design and endpoint development",
+      "Collaborated with Java backend teams on API contracts, integration testing, and endpoint development",
     ],
   },
   {
@@ -66,7 +66,7 @@ export const skills = {
     "Apollo",
     "REST APIs",
   ],
-  Testing: ["Playwright", "Cypress", "Jest", "Vitest"],
+  Testing: ["Playwright", "Cypress", "React Testing Library", "Jest", "Vitest"],
   Tools: ["Vite", "Webpack", "Storybook", "Git", "GitHub Actions", "CI/CD"],
   "AI Development": ["Claude Code", "Agentic AI Workflows"],
 };
