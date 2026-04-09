@@ -15,7 +15,7 @@ In `/Users/dusty/Code/dusty-mccord-resume`:
 3. Identify the new MDX file: `git diff main...HEAD --name-only --diff-filter=A | grep 'src/content/blog/.*\.mdx'`.
 4. Read that MDX file and extract `title`, `description`, and `draft` from frontmatter.
 
-If `draft: true`, ask Dusty: "This post is still marked `draft: true` — flip it to `false` before publishing? (recommended)" and wait for an answer. If yes, edit the file, commit the change with message `post: mark <slug> ready`.
+If `draft: true`, ask Dusty: "This post is still marked `draft: true` — flip it to `false` before publishing? (recommended)" and wait for an answer. If yes, edit the file, commit the change with message `post: mark <slug> ready`. (Note: posts default to `draft: false` now, so this is rare — only relevant if Dusty deliberately set draft mode.)
 
 ## Step 2: Pre-flight checks
 

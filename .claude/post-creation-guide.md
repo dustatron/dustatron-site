@@ -24,13 +24,59 @@ The reader should finish the post in 2 minutes — right before standup, on the 
 
 ## Structure (3 beats + close)
 
-Every post hits these in order. Don't label them with headings — let them flow.
+Every post hits these three beats in order:
 
-1. **This is cool** — What's the tool/trick/setting/prompt? Lead with the thing itself, named directly. Maybe one sentence of context for *how* you found it, but don't dwell.
-2. **The problem it solves** — What was annoying or broken before? Be specific. "Claude kept rewriting the same imports" beats "improves productivity."
-3. **Why you should try it** — One paragraph on what it unlocks, who it's for, and any caveats. End with a soft nudge: not "BUY NOW" but "if you've ever hit X, give this 10 minutes."
+1. **The setup** — Why were you looking for this? What problem was real and annoying? Specific: "I had ten thousand TypeScript errors at work" beats "I was struggling with productivity."
+2. **The thing itself** — What's the tool/trick/plugin/setting? Name it. Explain what it does in plain terms. One paragraph of mechanism, one paragraph of why-it's-better.
+3. **The setup steps** — How does someone actually try it? Numbered or labeled steps with copy-pasteable code blocks and screenshots.
 
-The post can have one or two H2 section headings if it helps, but don't force it. Most posts won't need them.
+Then a one-line close on why the reader should try it.
+
+### Default skeleton (overrideable per post)
+
+The first post worked well with this concrete shape. Use it as a starting point unless the post calls for something different:
+
+```
+# H1 title (matches frontmatter title)
+**Bold subtitle / one-line hook**
+
+![Header image](/blog/<slug>/header.png)
+
+<details>
+<summary><strong>Definitions</strong> (click to expand)</summary>
+- term — plain-English definition
+- term — plain-English definition
+</details>
+
+---
+## The setup (the why)
+1-2 paragraphs on the real problem.
+
+---
+## What it does (the thing)
+1-3 paragraphs on what it is, mechanism, why it beats the alternative.
+
+---
+## Two steps to get it working (the setup)
+**Step 1:** explanation + code block + screenshot
+**Step 2:** explanation + code block + screenshot
+
+---
+One-line closing: "If you ___, install this tonight."
+```
+
+Section headings should describe what's in the section ("Two steps to get it working") rather than abstract labels ("Action items"). H2s for major sections, no H3s unless absolutely necessary.
+
+### Code blocks serve layout, not just content
+
+A short code block like ```/plugin``` may be redundant with the surrounding sentence — keep it anyway if it visually breaks up a wall of text. The blog rewards visual rhythm. Walls of paragraphs are skipped; pages with images, code, and headings get read.
+
+### Inclusivity for jr devs and vibe coders
+
+Every post should be readable by someone who just got into vibe coding. That means:
+- **Define jargon on first use** — either inline ("an LSP, the thing your editor uses for red squiggles") or in a collapsible Definitions block at the top.
+- **No unexplained insider references.** If you mention a tool/project/joke that isn't widely known, either link it with one line of context, or cut it. ("It's not as flashy as openClaw" is exactly the kind of line to cut — most readers have no idea what openClaw is.)
+- **No assumed knowledge of obscure flags, configs, or commands.** If a step needs `npm install -g`, show the full command, don't say "install it globally."
 
 ---
 
@@ -48,6 +94,10 @@ The post can have one or two H2 section headings if it helps, but don't force it
 If a detail would make the post better but Dusty didn't provide it, **ask for it.** Don't paper over the gap with plausible-sounding fiction. The whole point of this blog is real field notes from a real practitioner. Made-up color is worse than a shorter post.
 
 When in doubt: **interview, don't invent.** Ask another question. Ask Dusty to expand. Ask "what did that actually look like?" If after probing he still doesn't have a detail, leave it out — don't fabricate to fill space. A 350-word honest post is better than a 600-word post with three made-up paragraphs.
+
+### "Confident guess" is still fabrication
+
+Even if you're pretty sure a generalization is true (e.g. "the noise dropped fast" or "weeks of saved time"), if Dusty didn't actually say it, **flag it as a guess and ask him to confirm.** Don't slip it into the draft as fact. The first Dusty Lab post had a closing paragraph I made up that turned out to be true — that's lucky, not honest, and we're not relying on luck. If you want to suggest a sentence, write it in the review step as: *"I'd add this sentence here: '...'. True?"* Let Dusty say yes or no before it lands in the draft.
 
 ### Interview style: ONE QUESTION AT A TIME
 
@@ -119,17 +169,46 @@ mcpServers:
 
 ## Images
 
-1–2 per post. Most posts get 1. Use them when:
+2–4 per post is the sweet spot. Most posts get a header image plus 2-3 inline screenshots. Use them when:
 - A screenshot makes the tip obviously clearer (a UI change, a before/after diff, a terminal output)
-- There's a hero image that sets the tone
+- There's a hero image that sets the tone at the top of the post
 
-When drafting, the prompt should **mark image spots inline** with a placeholder so I can fill them in later:
+### Where images live
+
+**Always under `public/blog/<slug>/` in the resume repo.** Anything in `public/` is served at the URL root, so a file at `public/blog/<slug>/foo.png` is accessible at `/blog/<slug>/foo.png` in the post.
+
+Do **not** put images in `src/content/blog/`. The Astro content collection only expects `.mdx` files there.
+
+### Filename convention
+
+Number the images in display order, with a short descriptive name:
 
 ```
-![IMAGE: screenshot of Claude Code showing the new MCP server connected]()
+public/blog/<slug>/header.png
+public/blog/<slug>/1.first-screenshot.png
+public/blog/<slug>/2.second-screenshot.png
+public/blog/<slug>/3.third-screenshot.png
 ```
 
-Don't try to find images automatically. Don't generate them. Just leave the placeholder with a clear description.
+The numeric prefix sorts the folder in display order, which makes it easy for Dusty to drop screenshots in and for Claude to wire them up without ambiguity.
+
+### Drafting placeholders
+
+When drafting before images exist, mark spots inline with a placeholder so Dusty can fill them in later:
+
+```
+![IMAGE: screenshot of Claude Code showing the /plugin menu]()
+```
+
+Don't try to find images automatically. Don't generate them. Just leave the placeholder with a clear, specific description of what the screenshot should show.
+
+### Wiring images in after Dusty drops them
+
+When Dusty says he's added the photos, run `ls public/blog/<slug>/` to see the actual filenames, then replace each placeholder with a real markdown image tag using a descriptive alt text (not "screenshot 1"):
+
+```markdown
+![Running /plugin in Claude Code](/blog/claude-code-lsp-plugin/1.code-cli-plugin.png)
+```
 
 ---
 
@@ -167,9 +246,11 @@ title: "..."
 description: "..."  # one sentence, shows on homepage card
 pubDate: 2026-04-08
 tags: ["claude-code", "mcp"]
-draft: true  # start as true, flip to false when ready
+draft: false
 ---
 ```
+
+**On `draft`:** default to `false`. Branch isolation already keeps in-progress posts off the live site (the post only deploys when its PR merges to `main`). Setting `draft: true` only hides the post from the local dev server's blog index, which is rarely what you want. Use `draft: true` only for the rare case where you want a post to live on `main` but stay hidden from the listing temporarily.
 
 Optional (custom Dusty Lab fields, may not render until schema is updated):
 
@@ -195,12 +276,14 @@ heroImage: "/blog/<slug>/hero.png"
 
 When `/new-post` runs, the expected flow is:
 
-1. Ask the user what the tip is (just the topic — single sentence is fine)
-2. Ask 3-5 short follow-up questions to get the story (what tool, what problem, what surprised you, who it's for, any code/config)
-3. Draft the post following this guide
-4. Self-check against the "Phrases to never use" list and humanize-writing skill rules
-5. Show the draft to the user for review
-6. On approval: create branch `post/<slug>` in `/Users/dusty/Code/dusty-mccord-resume`, write the file at `src/content/blog/<slug>.mdx`, commit. Do not push or open a PR — leave that for the user.
+1. Ask Dusty what the tip is (just the topic — single sentence is fine)
+2. **Interview him one question at a time.** Wait for each answer before asking the next. Pick follow-ups based on what he just said, not from a fixed list. Keep going until you have enough real material to draft honestly.
+3. Draft the post following this guide. Use the default skeleton unless the post calls for something different.
+4. Self-check against the no-fabrication rule, the "Phrases to never use" list, and the humanize-writing skill rules.
+5. Show the draft to Dusty inline for review. Don't write to disk yet.
+6. On approval: create branch `post/<slug>` in `/Users/dusty/Code/dusty-mccord-resume`, write the file at `src/content/blog/<slug>.mdx`, commit. Do not push or open a PR — that's `/publish-post`'s job.
+
+After Dusty drops images into `public/blog/<slug>/`, run `ls` on that directory and replace placeholder image markers with real markdown image tags using descriptive alt text.
 
 ---
 
