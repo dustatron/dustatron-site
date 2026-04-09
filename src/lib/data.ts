@@ -7,7 +7,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/dustymccord",
   website: "https://dustymccord.com",
   heroDescription:
-    "I'm Dusty — a frontend engineer in Portland writing The Dusty Lab, where I share the AI workflows I actually use to ship production React at Apex Fintech Solutions. Five years of React and TypeScript, a decade before that as a video editor and motion designer for brands like Nike and Amazon. I built the testing infrastructure on my team, helped scale it from 7 engineers to 40+, and I'm currently obsessed with agentic dev workflows. React Conf 2024 + 2025.",
+    "I'm Dusty — a frontend engineer in Portland writing The Dusty Lab, where I share the AI workflows I actually use to ship production React at Apex Fintech Solutions. Five years of React and TypeScript, a decade before that as a video editor and motion designer for brands like Nike and Amazon. I built the testing infrastructure on my team, helped scale it from 7 engineers to 40+, and I'm currently obsessed with agentic dev workflows. Caught React Conf in both 2024 and 2025.",
 };
 
 export const workExperience = [
