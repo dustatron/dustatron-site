@@ -1,0 +1,76 @@
+---
+title: "Have Claude Audit Your Claude Setup"
+description: "Point Claude at its own config folder and ask for suggestions — the results are surprisingly useful."
+pubDate: 2026-04-09
+tags: ["claude-code", "productivity", "tips"]
+draft: false
+---
+
+# Have Claude Audit Your Claude Setup
+**Your AI assistant can review its own config — and the suggestions are surprisingly useful**
+
+![Terminal with code](https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=1200)
+
+<details>
+<summary><strong>Definitions</strong> (click to expand)</summary>
+
+- **~/.claude** — the hidden folder in your home directory where Claude Code stores memories, settings, and global configuration
+- **CLAUDE.md** — a markdown file Claude reads for persistent instructions about how to behave
+- **post-tool-use hook** — a command that runs automatically after Claude uses a tool (like editing a file)
+
+</details>
+
+---
+
+## The setup
+
+I've been using Claude Code for months, nearly eight hours a day. My CLAUDE.md kept growing — every time I hit a recurring annoyance, I'd add another line. Eventually it was bloated, probably eating more context than it needed to. I wasn't sure which instructions were actually doing anything.
+
+---
+
+## The trick
+
+Open Claude Code in your `~/.claude` directory and ask it to review your setup.
+
+```bash
+cd ~/.claude && claude
+```
+
+That folder contains your memories, settings, and any global CLAUDE.md you've configured. Claude can read all of it, spot patterns you haven't noticed, and suggest improvements.
+
+In my case, Claude found:
+- My memory wasn't configured correctly — it wasn't actually persisting instructions I thought it was saving
+- I kept asking it not to skip tests, which meant I should just put that in CLAUDE.md permanently
+- My config files were getting wordy and needed cleanup
+- I could add a post-tool-use hook to run ESLint automatically instead of fixing lint errors after the fact
+
+---
+
+## What I changed
+
+Claude updated my CLAUDE.md to enforce concise responses:
+
+```markdown
+You are a direct answer assistant.
+Rules:
+- Sentence length: concise, around 15 words or less
+- No fluff: skip greetings, apologies, niceties — start with the answer
+- Structure: use bullets/numbers and horizontal lines for visual breaks
+- Clarification: if unclear, ask one yes/no question at a time
+```
+
+It also added a post-tool-use hook to run `eslint` after file edits, which cut down on the back-and-forth lint fixes I was constantly doing.
+
+---
+
+## Bonus: version control your settings
+
+I initialized git inside `~/.claude` so I can track every experiment. If a new setting makes Claude behave strangely, I can check the diff or roll back. When you're tweaking AI behavior daily, having that history is surprisingly handy.
+
+```bash
+cd ~/.claude && git init
+```
+
+---
+
+If you're using Claude Code every day and haven't pointed it at its own config folder, try it tonight.
