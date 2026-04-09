@@ -1,0 +1,70 @@
+---
+title: "Claude Code Plugin You Should Try"
+description: "A built-in Claude Code feature almost nobody talks about gives Claude the same code navigation as VS Code — and it's the only thing that consistently helped me clear a 10,000-error TypeScript project."
+pubDate: 2026-04-08
+tags: ["claude-code", "typescript", "lsp", "tools"]
+draft: false
+---
+
+# Claude Code's LSP Plugin
+**A diamond in the rough**
+![Claude Code ui](/blog/claude-code-lsp-plugin/header.png)
+<details>
+<summary><strong>Definitions</strong> (click to expand)</summary>
+
+- **LSP** (Language Server Protocol) — the same thing your editor uses to give you red squiggles, autocomplete, and "go to definition." It's a protocol that lets a separate process (the *language server*) answer questions about your code: where is this defined, what type is this, what's broken on line 42.
+- **Language server** — the actual program that speaks LSP for a specific language. `typescript-language-server` is the one for TypeScript. VS Code, Neovim, and now Claude Code can all talk to it.
+- **Typechecker** — the tool (`tsc` for TypeScript) that walks your whole project and reports every type error. Slow on big codebases. The LSP can answer per-file questions without running the full thing.
+
+</details>
+
+---
+## Inspiration
+
+I recently had a large project at work addressing TypeScript errors in a project with over **ten thousand** type errors. It felt like bailing a ship while it was still taking on water. Most of that time I was trying to figure out how to get Claude Code to actually help, instead of confidently fixing one error and creating three new ones in the same file — or just casting everything to `any`.
+
+I learned a lot in the process, and I watched Claude lose its mind more than once because untangling some of these errors would eat up the entire context window.
+
+---
+
+## This made a noticeable difference
+
+Claude Code's built-in **TypeScript LSP plugin**.
+
+It's in the docs under [Code Intelligence](https://code.claude.com/docs/en/discover-plugins#code-intelligence), and it'll actually improve your quality of life.
+
+Here's what it does. With the LSP plugin installed, Claude Code talks to a real language server — the same one **VS Code** uses. That means Claude can see the type errors in a single file without running the full typechecker on the whole project. It can jump to a definition the same way you'd cmd-click in your editor, instead of grepping its way around a giant codebase hoping to find the right export.
+
+On a project with thousands of files, that's the difference between Claude making a confident, surgical edit and Claude playing a really expensive game of hide and seek.
+
+It's also a lot cheaper on tokens. Grepping a large codebase to find one symbol burns context fast. The LSP just answers the question.
+
+---
+
+## Two steps to get it working
+
+**In Claude Code:** run `/plugin` and find the LSP for your language. I use TypeScript, so I installed `typescript-lsp`.
+
+```
+/plugin
+```
+
+![Running /plugin in Claude Code](/blog/claude-code-lsp-plugin/1.code-cli-plugin.png)
+
+![Searching for the typescript-lsp plugin](/blog/claude-code-lsp-plugin/2.search-for-lsp.png)
+
+Then install the actual language server binary separately. For TypeScript that's:
+
+```bash
+npm install -g typescript-language-server typescript
+```
+
+The binary you need depends on the language — the [Code Intelligence docs](https://code.claude.com/docs/en/discover-plugins#code-intelligence) list each one next to its plugin. Don't skip this step. The plugin alone won't do anything without the binary, and Claude won't tell you what's wrong — it'll just quietly keep grepping like it always did.
+
+![Installing typescript-language-server](/blog/claude-code-lsp-plugin/3.install.png)
+
+---
+
+After I had this set up, the noise dropped fast. Fewer "fixes" that introduced new errors. Faster edits in unfamiliar files. Less manual cleanup after every Claude turn. It didn't make the project clear itself, but it took the friction out of every individual change, and on a ten-thousand-error backlog that adds up to weeks of saved time.
+
+If you're working in any TypeScript project bigger than a weekend prototype, install this tonight.
