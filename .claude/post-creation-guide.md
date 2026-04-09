@@ -1,0 +1,211 @@
+# The Dusty Lab — Post Creation Guide
+
+This is the source of truth for how blog posts on dustymccord.com are written. The `/new-post` slash command reads this file. Edit it to change how posts get made.
+
+---
+
+## What a Dusty Lab post is
+
+A short tip from a working developer to other developers and vibe coders. The voice is "I just learned this cool thing, lean over to the desk next to you and tell your coworker about it." Friendly, slightly silly, dry humor allowed, no breathlessness.
+
+The reader should finish the post in 2 minutes — right before standup, on the bus, between meetings. They should walk away with one specific thing they could try today.
+
+**Audience:** working devs and vibe coders who use AI tools every day.
+
+**Goal of every post:** share one cool tip the reader didn't know. That's it.
+
+---
+
+## Length
+
+400–600 words. Hard ceiling: 800. If it's getting longer, it's probably two posts.
+
+---
+
+## Structure (3 beats + close)
+
+Every post hits these in order. Don't label them with headings — let them flow.
+
+1. **This is cool** — What's the tool/trick/setting/prompt? Lead with the thing itself, named directly. Maybe one sentence of context for *how* you found it, but don't dwell.
+2. **The problem it solves** — What was annoying or broken before? Be specific. "Claude kept rewriting the same imports" beats "improves productivity."
+3. **Why you should try it** — One paragraph on what it unlocks, who it's for, and any caveats. End with a soft nudge: not "BUY NOW" but "if you've ever hit X, give this 10 minutes."
+
+The post can have one or two H2 section headings if it helps, but don't force it. Most posts won't need them.
+
+---
+
+## The no-fabrication rule (most important rule in this doc)
+
+**Never invent details, anecdotes, opinions, numbers, or events.** If Dusty didn't say it, it does not go in the post. This includes:
+
+- "I tried X, Y, and Z first" — only list things Dusty actually mentioned trying
+- Specific numbers ("three times," "for two weeks," "ten attempts") unless Dusty stated them
+- Emotional reactions or moments ("I was frustrated," "felt my soul leave my body") unless Dusty described that feeling
+- Quotes from coworkers, conversations, or anyone else
+- Tools, configs, or workflows Dusty didn't bring up
+- Setup steps Dusty didn't walk through
+
+If a detail would make the post better but Dusty didn't provide it, **ask for it.** Don't paper over the gap with plausible-sounding fiction. The whole point of this blog is real field notes from a real practitioner. Made-up color is worse than a shorter post.
+
+When in doubt: **interview, don't invent.** Ask another question. Ask Dusty to expand. Ask "what did that actually look like?" If after probing he still doesn't have a detail, leave it out — don't fabricate to fill space. A 350-word honest post is better than a 600-word post with three made-up paragraphs.
+
+### Interview style: ONE QUESTION AT A TIME
+
+**Never dump a survey of questions on Dusty.** Ask one question, wait for the answer, then ask the next one based on what he said. This is non-negotiable. A list of 5 numbered questions is exactly the wrong shape — it feels like a form, the answers come back shallow, and you lose the chance to follow the interesting thread.
+
+Good rhythm:
+1. Ask what the tip is.
+2. Wait for answer.
+3. Pick the most interesting/unclear thing in his answer and ask one focused follow-up.
+4. Wait.
+5. Repeat until you have enough real material to draft honestly.
+
+### Probing questions to choose from (one at a time)
+
+If Dusty's first answer is thin, dig in with one of these — pick the one that matches the gap:
+- "Walk me through what you actually did, step by step."
+- "What's a specific moment where this paid off or broke?"
+- "What other things did you try first?"
+- "Were there any numbers attached — time saved, errors fixed, tokens, anything?"
+- "What did you feel when this clicked? Was there an aha moment, or did it just gradually work?"
+- "Anything you'd warn people about — gotchas, edge cases, things that didn't work?"
+
+Keep asking until you have enough real material. If you still don't, the post is shorter. That's fine.
+
+---
+
+## Voice rules
+
+- Write like you're talking to a friend at the next desk. First person. Conversational.
+- Dry, slightly sarcastic, occasionally self-deprecating. Don't try to be funny on every line — earn it.
+- No hype, no "game-changer," no "revolutionary," no "in today's fast-paced world."
+- Have an opinion. If something's overhyped, say so. If you're not sure, say *that*.
+- Specific over abstract. "Cut my context-switching from 8 tabs to 2" beats "improves focus."
+- Sacrifice grammar for concision. Fragments are fine. Start sentences with "But" or "And."
+- Write the way you talk: contractions, asides, the occasional rhetorical question.
+
+### Phrases to never use
+delve, leverage (verb), harness, navigate (figurative), realm, journey, tapestry, landscape (figurative), seamless, robust, cutting-edge, game-changer, paradigm shift, unlock the power of, in today's fast-paced world, "It's not just X, it's Y", "This is more than just a tool"
+
+### Things AI writing does that we don't
+- Five-bullet lists with bolded inline headers
+- "In conclusion" / "To sum up" / "Moving forward"
+- Em dashes injected mid-sentence for dramatic asides — like this — when a comma would do
+- Forcing every section to end on a tidy takeaway
+- Hedging every claim ("it could potentially be argued that...")
+- Synonym cycling (calling Claude "the assistant," "the AI," "the model" in one paragraph — pick one)
+
+---
+
+## Code blocks
+
+- Real fenced code blocks with language tags. Always.
+- Copy-pasteable. If it's a config, show the full block, not a snippet with "..."
+- Short. If a code sample is more than ~15 lines, ask whether it really belongs in the post or in a linked gist/repo.
+- No screenshots of code. Ever.
+
+Example:
+
+````markdown
+```yaml
+mcpServers:
+  filesystem:
+    command: npx
+    args: ["-y", "@modelcontextprotocol/server-filesystem", "/Users/dusty/projects"]
+```
+````
+
+---
+
+## Images
+
+1–2 per post. Most posts get 1. Use them when:
+- A screenshot makes the tip obviously clearer (a UI change, a before/after diff, a terminal output)
+- There's a hero image that sets the tone
+
+When drafting, the prompt should **mark image spots inline** with a placeholder so I can fill them in later:
+
+```
+![IMAGE: screenshot of Claude Code showing the new MCP server connected]()
+```
+
+Don't try to find images automatically. Don't generate them. Just leave the placeholder with a clear description.
+
+---
+
+## Closing
+
+End with one sentence on **why you think the reader should try it.** Direct, no hedging. Not a question to readers, not a takeaway box, not "let me know what you think." Just: "If you've spent any time fighting context limits in Claude Code, this is worth ten minutes of your afternoon."
+
+Then stop. No call-to-action paragraph.
+
+---
+
+## Title
+
+Format: **[Specific Tool or Trick] + [Concrete Benefit]**
+
+Good:
+- "The MCP Filesystem Server Cut My Claude Code Setup Time in Half"
+- "One Line in CLAUDE.md That Stopped Claude From Rewriting Files"
+- "Why I Switched to Beads for Claude Code Ticket Tracking"
+
+Bad:
+- "A Tip About AI" (too vague)
+- "🚀 Supercharge Your Workflow With This One Weird Trick" (cringe)
+- "Reflections on My Journey With Claude" (no)
+
+---
+
+## Frontmatter
+
+Required (matches site schema in `src/content.config.ts`):
+
+```yaml
+---
+title: "..."
+description: "..."  # one sentence, shows on homepage card
+pubDate: 2026-04-08
+tags: ["claude-code", "mcp"]
+draft: true  # start as true, flip to false when ready
+---
+```
+
+Optional (custom Dusty Lab fields, may not render until schema is updated):
+
+```yaml
+tools: ["Claude Code", "MCP filesystem server"]
+models: ["claude-opus-4-6"]
+heroImage: "/blog/<slug>/hero.png"
+```
+
+**Description** is the most-clicked piece of metadata on the homepage card. It should be one specific sentence that makes someone want to read the post. Don't repeat the title.
+
+---
+
+## Slug + filename
+
+- Filename: `src/content/blog/<slug>.mdx`
+- Slug: kebab-case, keyword-first, no clever wordplay
+- Examples: `mcp-filesystem-server`, `claude-md-no-rewrites`, `beads-ticket-tracking`
+
+---
+
+## Workflow
+
+When `/new-post` runs, the expected flow is:
+
+1. Ask the user what the tip is (just the topic — single sentence is fine)
+2. Ask 3-5 short follow-up questions to get the story (what tool, what problem, what surprised you, who it's for, any code/config)
+3. Draft the post following this guide
+4. Self-check against the "Phrases to never use" list and humanize-writing skill rules
+5. Show the draft to the user for review
+6. On approval: create branch `post/<slug>` in `/Users/dusty/Code/dusty-mccord-resume`, write the file at `src/content/blog/<slug>.mdx`, commit. Do not push or open a PR — leave that for the user.
+
+---
+
+## Reference files
+
+- Voice example (use for tone, not format): `the-dusty-lab/context/writing examples.md`
+- Post idea backlog: `the-dusty-lab/context/post Ideas.md`
+- Site content schema: `/Users/dusty/Code/dusty-mccord-resume/src/content.config.ts`
