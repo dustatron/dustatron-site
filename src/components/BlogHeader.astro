@@ -6,9 +6,9 @@ import { ThemeToggle } from "./ui/theme-toggle";
   <nav class="max-w-5xl mx-auto backdrop-blur-md bg-white/10 dark:bg-black/20 rounded-full border border-white/20 dark:border-white/10 px-6 py-3 flex items-center justify-between">
     <a
       href="/"
-      class="text-lg font-bold text-primary hover:text-primary/80 transition-colors"
+      class="text-lg font-bold font-mono text-primary hover:text-primary/80 transition-colors"
     >
-      DM
+      The Dusty Lab
     </a>
     <div class="flex items-center gap-6">
       <a
@@ -18,10 +18,24 @@ import { ThemeToggle } from "./ui/theme-toggle";
         Home
       </a>
       <a
-        href="/blog"
+        href="/about"
         class="text-sm text-foreground/70 hover:text-primary transition-colors"
       >
-        Blog
+        About
+      </a>
+      <a
+        href="https://github.com/dustatron"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sm text-foreground/70 hover:text-primary transition-colors"
+      >
+        GitHub
+      </a>
+      <a
+        href="/rss.xml"
+        class="text-sm text-foreground/70 hover:text-primary transition-colors"
+      >
+        RSS
       </a>
       <ThemeToggle client:only="react" />
     </div>

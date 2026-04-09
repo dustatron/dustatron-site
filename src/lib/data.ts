@@ -7,7 +7,7 @@ export const personalInfo = {
   linkedin: "https://www.linkedin.com/in/dustymccord",
   website: "https://dustymccord.com",
   heroDescription:
-    "Frontend engineer with 5+ years of experience building performant UIs in React and TypeScript. Collaborative team player who works directly with product owners and designers to ship quality apps. Strong testing advocate who has established testing infrastructure where none existed. Love discovering innovations in testing, AI-assisted development, and deployment patterns. Never afraid to roll up my sleeves and tackle something new. Active in the community, attending React Conf 2024 and 2025.",
+    "I'm Dusty — a frontend engineer in Portland writing The Dusty Lab, where I share the AI workflows I actually use to ship production React at Apex Fintech Solutions. Five years of React and TypeScript, a decade before that as a video editor and motion designer for brands like Nike and Amazon. I built the testing infrastructure on my team, helped scale it from 7 engineers to 40+, and I'm currently obsessed with agentic dev workflows. I attended React Conf 2024 and 2025, and I'm always trying to discover what's next.",
 };
 
 export const workExperience = [
@@ -26,7 +26,7 @@ export const workExperience = [
       "Mentored interns and new developers; created onboarding documentation as the team scaled from 7 to 40+",
       "Collaborated with developers, designers, and non-technical stakeholders across global teams",
       "Drove innovation through company hackathons, deploying POCs for internal tools",
-      "Adopted agentic AI development workflows to accelerate feature development",
+      "Adopted Claude Code and agentic AI workflows for daily feature work, materially accelerating greenfield React delivery",
       "Conduct daily code reviews, ensuring code quality and knowledge sharing",
       "Collaborated with Java backend teams on API contracts, integration testing, and endpoint development",
     ],
@@ -68,7 +68,13 @@ export const skills = {
   ],
   Testing: ["Playwright", "Cypress", "React Testing Library", "Jest", "Vitest"],
   Tools: ["Vite", "Webpack", "Storybook", "Git", "GitHub Actions", "CI/CD"],
-  "AI Development": ["Claude Code", "Agentic AI Workflows"],
+  "AI Development": [
+    "Claude Code",
+    "Cursor",
+    "MCP Servers",
+    "Agentic Workflows",
+    "Prompt Engineering",
+  ],
 };
 
 export const community = [

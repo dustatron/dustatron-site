@@ -7,11 +7,13 @@ export default function GlassHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
+    { label: "Home", href: "/" },
     { label: "Experience", href: "#experience" },
     { label: "Skills", href: "#skills" },
     { label: "Community", href: "#community" },
     { label: "Education", href: "#education" },
-    { label: "Blog", href: "/blog" },
+    { label: "GitHub", href: "https://github.com/dustatron" },
+    { label: "RSS", href: "/rss.xml" },
   ];
 
   return (
@@ -24,9 +26,9 @@ export default function GlassHeader() {
       <nav className="max-w-5xl mx-auto backdrop-blur-md bg-white/10 dark:bg-black/20 rounded-full border border-white/20 dark:border-white/10 px-6 py-3 flex items-center justify-between">
         <a
           href="/"
-          className="text-lg font-bold text-primary hover:text-primary/80 transition-colors"
+          className="text-lg font-bold font-mono text-primary hover:text-primary/80 transition-colors"
         >
-          DM
+          The Dusty Lab
         </a>
         <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
