@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
-import BlogHeader from "@/components/BlogHeader.astro";
+import BlogHeader from "@/components/BlogHeader";
 import LabIntro from "@/components/LabIntro.astro";
 
 const posts = (await getCollection("blog"))
@@ -16,7 +16,7 @@ const formatDate = (date: Date) =>
   title="The Dusty Lab — AI tricks, tips, and tools that actually work"
   description="AI tricks, tips, and tools that actually work, from someone shipping real software with them every day."
 >
-  <BlogHeader />
+  <BlogHeader client:only="react" />
   <main class="pb-16 px-4">
     <LabIntro />
     <div class="max-w-3xl mx-auto">
