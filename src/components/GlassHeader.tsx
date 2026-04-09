@@ -7,11 +7,12 @@ export default function GlassHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
+    { label: "Home", href: "/" },
     { label: "Experience", href: "#experience" },
     { label: "Skills", href: "#skills" },
     { label: "Community", href: "#community" },
     { label: "Education", href: "#education" },
-    { label: "Blog", href: "/blog" },
+    { label: "RSS", href: "/rss.xml" },
   ];
 
   return (
@@ -26,7 +27,7 @@ export default function GlassHeader() {
           href="/"
           className="text-lg font-bold text-primary hover:text-primary/80 transition-colors"
         >
-          DM
+          The Dusty Lab
         </a>
         <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (

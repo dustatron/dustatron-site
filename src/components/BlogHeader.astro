@@ -8,7 +8,7 @@ import { ThemeToggle } from "./ui/theme-toggle";
       href="/"
       class="text-lg font-bold text-primary hover:text-primary/80 transition-colors"
     >
-      DM
+      The Dusty Lab
     </a>
     <div class="flex items-center gap-6">
       <a
@@ -18,10 +18,16 @@ import { ThemeToggle } from "./ui/theme-toggle";
         Home
       </a>
       <a
-        href="/blog"
+        href="/about"
         class="text-sm text-foreground/70 hover:text-primary transition-colors"
       >
-        Blog
+        About
+      </a>
+      <a
+        href="/rss.xml"
+        class="text-sm text-foreground/70 hover:text-primary transition-colors"
+      >
+        RSS
       </a>
       <ThemeToggle client:only="react" />
     </div>
