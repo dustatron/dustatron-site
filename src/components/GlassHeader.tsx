@@ -12,6 +12,7 @@ export default function GlassHeader() {
     { label: "Skills", href: "#skills" },
     { label: "Community", href: "#community" },
     { label: "Education", href: "#education" },
+    { label: "GitHub", href: "https://github.com/dustatron" },
     { label: "RSS", href: "/rss.xml" },
   ];
 
