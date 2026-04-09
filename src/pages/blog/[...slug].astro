@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
-import BlogHeader from "@/components/BlogHeader.astro";
+import BlogHeader from "@/components/BlogHeader";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -24,7 +24,7 @@ const formatDate = (date: Date) => {
 ---
 
 <Layout title={`${post.data.title} | Dusty McCord`} description={post.data.description}>
-  <BlogHeader />
+  <BlogHeader client:only="react" />
   <main class="pt-24 pb-16 px-4">
     <article class="max-w-3xl mx-auto">
       <a
