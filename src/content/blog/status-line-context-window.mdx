@@ -1,0 +1,54 @@
+---
+title: "Claude Code Status Line Improvements"
+description: "I built a Claude Code status line that shows context usage, model, branch, and PR links — sharing it for you to use or harvest for parts."
+pubDate: 2026-05-01
+tags: ["claude-code", "productivity", "tools"]
+draft: false
+---
+
+# A Status Line for Your Context Window
+
+![Screenshot of the status line](/blog/statusline-example.png)
+
+<details>
+<summary><strong>Definitions</strong> (click to expand)</summary>
+
+- **Context window** — how much text Claude can "remember" in a conversation. Hit the limit and it compresses, losing details.
+- **Rate limit window** — Claude limits usage over a 5-hour period.
+
+</details>
+
+---
+
+## Why I built this
+
+Claude Code's default UI is bare. The more I used it, the more I wanted feedback and stats baked into the prompt. Luckily, Claude Code supports custom status lines, so I built one. I've been tweaking it for a few months now and feel ready to share it. Use it as-is or harvest it for parts.
+
+I need constant feedback on how much context I have left, especially when I'm deep in a hard problem and nowhere near a solution. If I see the limit coming, I can save what I've learned to a markdown doc and start fresh without losing progress.
+
+Without it, I'd blow past the limit, Claude compresses the conversation, forgets half of what we'd figured out, and I'm stuck.
+
+---
+
+## What it shows
+
+The default status line doesn't surface context usage. This one does, plus the other things I check most: branch, model, rate limit, and whether my Claude Code is outdated.
+
+---
+
+## Setup
+
+Drop the script in `~/.claude/` and add this to `settings.json`:
+
+```json
+"statusLine": {
+  "type": "command",
+  "command": "python3 ~/.claude/statusline.py"
+}
+```
+
+Repo: [github.com/dustatron/claude-code-statusline](https://github.com/dustatron/claude-code-statusline)
+
+---
+
+Five minutes to set up. Worth it if you're tired of guessing.
